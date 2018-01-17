@@ -33,7 +33,7 @@ public class ORMStandaloneTestCase {
 
 	// Add your tests, using standard JUnit.
 
-	@Test
+	//@Test
 	public void hhh123Test() throws Exception {
 
 	}

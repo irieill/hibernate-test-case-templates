@@ -22,6 +22,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.testing.junit4.BaseCoreFunctionalTestCase;
 import org.junit.Test;
 
+import org.hibernate.engine.jdbc.internal.BasicFormatterImpl;
+
 /**
  * This template demonstrates how to develop a test case for Hibernate ORM, using its built-in unit test framework.
  * Although ORMStandaloneTestCase is perfectly acceptable as a reproducer, usage of this class is much preferred.
@@ -68,11 +70,12 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
 
 	// Add your tests, using standard JUnit.
 	@Test
-	public void hhh123Test() throws Exception {
+	public void hhh12221Test() throws Exception {
 		// BaseCoreFunctionalTestCase automatically creates the SessionFactory and provides the Session.
 		Session s = openSession();
 		Transaction tx = s.beginTransaction();
-		// Do stuff...
+		BasicFormatterImpl formatter = new BasicFormatterImpl();
+		System.out.println(String.format("\nquoting with \"\" formats as\n%s\n\nquoting with [] formats as\n%s\n", formatter.format("select group0_.\"order\" as order1_0_0_ from \"Group\" group0_ where group0_.\"order\"=?"), formatter.format("select group0_.[order] as order1_0_0_ from [Group] group0_ where group0_.[order]=?")));
 		tx.commit();
 		s.close();
 	}
